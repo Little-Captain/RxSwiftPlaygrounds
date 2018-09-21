@@ -1,0 +1,462 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2EA9932AF74618C9E46963F5 /* Pods_RxSwiftPlaygrounds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29711EDFE2B6C61AA979DD32 /* Pods_RxSwiftPlaygrounds.framework */; };
+		B96F4A9B2154AA4B0002EEA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96F4A9A2154AA4B0002EEA3 /* AppDelegate.swift */; };
+		B96F4A9D2154AA4B0002EEA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96F4A9C2154AA4B0002EEA3 /* ViewController.swift */; };
+		B96F4AA02154AA4B0002EEA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B96F4A9E2154AA4B0002EEA3 /* Main.storyboard */; };
+		B96F4AA22154AA4D0002EEA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B96F4AA12154AA4D0002EEA3 /* Assets.xcassets */; };
+		B96F4AA52154AA4D0002EEA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B96F4AA32154AA4D0002EEA3 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		29711EDFE2B6C61AA979DD32 /* Pods_RxSwiftPlaygrounds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftPlaygrounds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B5066779AD6ADD0177C906B /* Pods-RxSwiftPlaygrounds.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftPlaygrounds.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftPlaygrounds/Pods-RxSwiftPlaygrounds.release.xcconfig"; sourceTree = "<group>"; };
+		B96F4A972154AA4B0002EEA3 /* RxSwiftPlaygrounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftPlaygrounds.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B96F4A9A2154AA4B0002EEA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B96F4A9C2154AA4B0002EEA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B96F4A9F2154AA4B0002EEA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B96F4AA12154AA4D0002EEA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B96F4AA42154AA4D0002EEA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B96F4AA62154AA4D0002EEA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B96F4AAD2154AA7A0002EEA3 /* 01.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 01.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4AAE2154AA7A0002EEA3 /* 02.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 02.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4AAF2154AA7A0002EEA3 /* 03.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 03.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4AB02154AA7A0002EEA3 /* 04.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 04.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4AB12154AA7A0002EEA3 /* 05.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 05.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4AB22154AA7A0002EEA3 /* 06.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 06.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4AB32154AA7A0002EEA3 /* 07.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 07.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4AB42154AA7A0002EEA3 /* 08.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 08.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4AB52154AA7A0002EEA3 /* 09.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 09.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4AB62154AA7A0002EEA3 /* 10.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 10.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4AB72154AA7A0002EEA3 /* 11.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 11.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4AB92154AA7A0002EEA3 /* C02.Observables.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = C02.Observables.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4ABA2154AA7A0002EEA3 /* C03.Subjects.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = C03.Subjects.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4ABB2154AA7A0002EEA3 /* C05.Filtering Operators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "C05.Filtering Operators.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4ABC2154AA7A0002EEA3 /* C06.Sharing subscriptions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "C06.Sharing subscriptions.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4ABD2154AA7A0002EEA3 /* C07.Transforming Operators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "C07.Transforming Operators.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4ABE2154AA7A0002EEA3 /* C08.share vs. shareReplay.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "C08.share vs. shareReplay.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4ABF2154AA7A0002EEA3 /* C09.Combining Operators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "C09.Combining Operators.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B96F4AC02154AB550002EEA3 /* C11.Time Based Operators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "C11.Time Based Operators.playground"; sourceTree = "<group>"; };
+		E5565220E229ABB729CF4B7A /* Pods-RxSwiftPlaygrounds.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftPlaygrounds.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftPlaygrounds/Pods-RxSwiftPlaygrounds.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B96F4A942154AA4B0002EEA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EA9932AF74618C9E46963F5 /* Pods_RxSwiftPlaygrounds.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2540D1AD5017F60C9E1E22D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E5565220E229ABB729CF4B7A /* Pods-RxSwiftPlaygrounds.debug.xcconfig */,
+				2B5066779AD6ADD0177C906B /* Pods-RxSwiftPlaygrounds.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B96F4A8E2154AA4B0002EEA3 = {
+			isa = PBXGroup;
+			children = (
+				B96F4AAC2154AA7A0002EEA3 /* Playground */,
+				B96F4A992154AA4B0002EEA3 /* RxSwiftPlaygrounds */,
+				B96F4A982154AA4B0002EEA3 /* Products */,
+				2540D1AD5017F60C9E1E22D7 /* Pods */,
+				BAF5DD31E731063E1D0CE9C3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B96F4A982154AA4B0002EEA3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B96F4A972154AA4B0002EEA3 /* RxSwiftPlaygrounds.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B96F4A992154AA4B0002EEA3 /* RxSwiftPlaygrounds */ = {
+			isa = PBXGroup;
+			children = (
+				B96F4A9A2154AA4B0002EEA3 /* AppDelegate.swift */,
+				B96F4A9C2154AA4B0002EEA3 /* ViewController.swift */,
+				B96F4A9E2154AA4B0002EEA3 /* Main.storyboard */,
+				B96F4AA12154AA4D0002EEA3 /* Assets.xcassets */,
+				B96F4AA32154AA4D0002EEA3 /* LaunchScreen.storyboard */,
+				B96F4AA62154AA4D0002EEA3 /* Info.plist */,
+			);
+			path = RxSwiftPlaygrounds;
+			sourceTree = "<group>";
+		};
+		B96F4AAC2154AA7A0002EEA3 /* Playground */ = {
+			isa = PBXGroup;
+			children = (
+				B96F4AAD2154AA7A0002EEA3 /* 01.playground */,
+				B96F4AAE2154AA7A0002EEA3 /* 02.playground */,
+				B96F4AAF2154AA7A0002EEA3 /* 03.playground */,
+				B96F4AB02154AA7A0002EEA3 /* 04.playground */,
+				B96F4AB12154AA7A0002EEA3 /* 05.playground */,
+				B96F4AB22154AA7A0002EEA3 /* 06.playground */,
+				B96F4AB32154AA7A0002EEA3 /* 07.playground */,
+				B96F4AB42154AA7A0002EEA3 /* 08.playground */,
+				B96F4AB52154AA7A0002EEA3 /* 09.playground */,
+				B96F4AB62154AA7A0002EEA3 /* 10.playground */,
+				B96F4AB72154AA7A0002EEA3 /* 11.playground */,
+				B96F4AB82154AA7A0002EEA3 /* RxSwift Reactive Programming with Swift */,
+			);
+			path = Playground;
+			sourceTree = "<group>";
+		};
+		B96F4AB82154AA7A0002EEA3 /* RxSwift Reactive Programming with Swift */ = {
+			isa = PBXGroup;
+			children = (
+				B96F4AB92154AA7A0002EEA3 /* C02.Observables.playground */,
+				B96F4ABA2154AA7A0002EEA3 /* C03.Subjects.playground */,
+				B96F4ABB2154AA7A0002EEA3 /* C05.Filtering Operators.playground */,
+				B96F4ABC2154AA7A0002EEA3 /* C06.Sharing subscriptions.playground */,
+				B96F4ABD2154AA7A0002EEA3 /* C07.Transforming Operators.playground */,
+				B96F4ABE2154AA7A0002EEA3 /* C08.share vs. shareReplay.playground */,
+				B96F4ABF2154AA7A0002EEA3 /* C09.Combining Operators.playground */,
+				B96F4AC02154AB550002EEA3 /* C11.Time Based Operators.playground */,
+			);
+			path = "RxSwift Reactive Programming with Swift";
+			sourceTree = "<group>";
+		};
+		BAF5DD31E731063E1D0CE9C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29711EDFE2B6C61AA979DD32 /* Pods_RxSwiftPlaygrounds.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B96F4A962154AA4B0002EEA3 /* RxSwiftPlaygrounds */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B96F4AA92154AA4D0002EEA3 /* Build configuration list for PBXNativeTarget "RxSwiftPlaygrounds" */;
+			buildPhases = (
+				668CF3992A16A35ECD535401 /* [CP] Check Pods Manifest.lock */,
+				B96F4A932154AA4B0002EEA3 /* Sources */,
+				B96F4A942154AA4B0002EEA3 /* Frameworks */,
+				B96F4A952154AA4B0002EEA3 /* Resources */,
+				7AD1920E72664B263A231D4A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RxSwiftPlaygrounds;
+			productName = RxSwiftPlaygrounds;
+			productReference = B96F4A972154AA4B0002EEA3 /* RxSwiftPlaygrounds.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B96F4A8F2154AA4B0002EEA3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = qxxl007;
+				TargetAttributes = {
+					B96F4A962154AA4B0002EEA3 = {
+						CreatedOnToolsVersion = 9.4;
+					};
+				};
+			};
+			buildConfigurationList = B96F4A922154AA4B0002EEA3 /* Build configuration list for PBXProject "RxSwiftPlaygrounds" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B96F4A8E2154AA4B0002EEA3;
+			productRefGroup = B96F4A982154AA4B0002EEA3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B96F4A962154AA4B0002EEA3 /* RxSwiftPlaygrounds */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B96F4A952154AA4B0002EEA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B96F4AA52154AA4D0002EEA3 /* LaunchScreen.storyboard in Resources */,
+				B96F4AA22154AA4D0002EEA3 /* Assets.xcassets in Resources */,
+				B96F4AA02154AA4B0002EEA3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		668CF3992A16A35ECD535401 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RxSwiftPlaygrounds-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7AD1920E72664B263A231D4A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RxSwiftPlaygrounds/Pods-RxSwiftPlaygrounds-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxSwiftPlaygrounds/Pods-RxSwiftPlaygrounds-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B96F4A932154AA4B0002EEA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B96F4A9D2154AA4B0002EEA3 /* ViewController.swift in Sources */,
+				B96F4A9B2154AA4B0002EEA3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B96F4A9E2154AA4B0002EEA3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B96F4A9F2154AA4B0002EEA3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B96F4AA32154AA4D0002EEA3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B96F4AA42154AA4D0002EEA3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B96F4AA72154AA4D0002EEA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B96F4AA82154AA4D0002EEA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B96F4AAA2154AA4D0002EEA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5565220E229ABB729CF4B7A /* Pods-RxSwiftPlaygrounds.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X65GN27YEQ;
+				INFOPLIST_FILE = RxSwiftPlaygrounds/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.littlecaptain.RxSwiftPlaygrounds;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B96F4AAB2154AA4D0002EEA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B5066779AD6ADD0177C906B /* Pods-RxSwiftPlaygrounds.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X65GN27YEQ;
+				INFOPLIST_FILE = RxSwiftPlaygrounds/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.littlecaptain.RxSwiftPlaygrounds;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B96F4A922154AA4B0002EEA3 /* Build configuration list for PBXProject "RxSwiftPlaygrounds" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B96F4AA72154AA4D0002EEA3 /* Debug */,
+				B96F4AA82154AA4D0002EEA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B96F4AA92154AA4D0002EEA3 /* Build configuration list for PBXNativeTarget "RxSwiftPlaygrounds" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B96F4AAA2154AA4D0002EEA3 /* Debug */,
+				B96F4AAB2154AA4D0002EEA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B96F4A8F2154AA4B0002EEA3 /* Project object */;
+}
