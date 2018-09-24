@@ -46,9 +46,8 @@ let timer = DispatchSource.timer(interval: 1.0 / Double(elementsPerSecond), queu
 // Delayed subscriptions
 // The idea behind the delaySubscription(_:scheduler:) is, as the name implies,
 // to delay the time a subscriber starts receiving elements from its subscription.
-// In the right timeline view, you can observe that the second timeline starts
-// picking up elements after the delay specified by delayInSeconds.
-// delaySubscription(_:scheduler:) 的目的是延迟订阅者从订阅中开始接收元素的时间
+// 被延迟的订阅
+// delaySubscription(_:scheduler:) 的目的是延迟订阅者从订阅中开始接收元素的时间.
 
 // Note: In Rx, some observables are called “cold” while others are “hot”.
 // Cold observables start emitting elements when you subscribe to them.
@@ -63,7 +62,27 @@ let timer = DispatchSource.timer(interval: 1.0 / Double(elementsPerSecond), queu
 // 注意: 在 Rx 中, 一些 observable 称为 `cold` 的, 另一些称为 `hot` 的
 // cold observable 在你订阅它的时候发出元素
 // hot observable 更像是一个永久的源, 一直发出元素, 你可以随时观察它 (就像通知)
-// 当延迟一个订阅, 如果是 cold observable,
+// 当延迟一个订阅, 如果是 cold observable, 将没有任何影响
+// 当延迟一个订阅, 如果是 hot observable, 你可能会错过一些元素
+// 说明: 延迟订阅相当于, 你不是现在订阅, 而是延迟一段时间后才开始订阅
+// hot observable 和 cold observable 是需要一些时间来讨论的重要主题.
+// 请记住: cold observable 只在订阅时才发出事件, 而 hot observable 会发出独立于订阅的事件
+
+// The other kind of delay in RxSwift lets you time-shift the whole sequence.
+// Instead of subscribing late, the operator subscribes immediately to the
+// source observable, but delays every emitted element by the specified amount
+// of time. The net result is a concrete time-shift.
+// 另一个 RxSwift 中的延迟操作让你可以时移整个序列.
+// 与延迟订阅不同, 这个操作符立即订阅源 observable, 但是针对每个元素延迟指定的时间后再发送
+// 返回网络结果是一个具体时移实例
+
+// Delaying the subscription (with the default settings) made you miss some elements
+// from the source observable. When using the delay(_:scheduler:) operator,
+// you time-shift the elements and won't miss any. Again, the subscription occurs immediately.
+// You simply “see” the items with a delay.
+// 延迟订阅(使用默认设置)让你从源 observable 丢失一些元素. 当使用  delay(_:scheduler:) 操作时,
+// 你时移每个元素但是不会丢失任何一个. 相对于延迟订阅, 这里订阅立即发生,
+// 只是简单的 `看见` 元素被延迟了一个固定时间.
 
 // cold observable
 _ = Observable.from([1, 2, 3, 4])
