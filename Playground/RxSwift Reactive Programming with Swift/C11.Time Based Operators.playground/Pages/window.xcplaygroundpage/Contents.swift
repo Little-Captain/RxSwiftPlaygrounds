@@ -40,7 +40,7 @@ class TimelineView<E>: TimelineViewBase, ObserverType where E: CustomStringConve
 
 // do(onNext:) 操作符通常用于执行副作用
 
-let elementsPerSecond = 0.4
+let elementsPerSecond = 3
 let windowTimeSpan: RxTimeInterval = 4
 let windowMaxCount = 10
 let sourceObservable = PublishSubject<String>()
@@ -57,27 +57,94 @@ let timer = DispatchSource.timer(interval: 1.0 / Double(elementsPerSecond), queu
     sourceObservable.onNext("🦊")
 }
 
+//_ = sourceObservable.subscribe(sourceTimeline)
+//_ = sourceObservable
+//    .window(timeSpan: windowTimeSpan,
+//            count: windowMaxCount,
+//            scheduler: MainScheduler.instance)
+//    .flatMap { windowedObservable -> Observable<(TimelineView<Int>, String?)> in
+//        let timeline = TimelineView<Int>.make()
+//        stack.insert(timeline, at: 4)
+//        stack.keep(atMost: 8)
+//        return windowedObservable
+//            .map { (timeline, $0) }
+//            .concat(Observable.just((timeline, nil)))
+//    }
+//    .subscribe(onNext: { tuple in
+//        let (timeline, value) = tuple
+//        if let value = value {
+//            timeline.add(.Next(value))
+//        } else {
+//            timeline.add(.Completed(true))
+//        }
+//    })
+
+// CHALLENGE SOLUTION: move side effect out of flatMap
+// 相对官方解法, 我还是更喜欢我自己的解法
 _ = sourceObservable.subscribe(sourceTimeline)
-_ = sourceObservable
+let windowObservable = sourceObservable
     .window(timeSpan: windowTimeSpan,
             count: windowMaxCount,
             scheduler: MainScheduler.instance)
     .flatMap { windowedObservable -> Observable<(TimelineView<Int>, String?)> in
         let timeline = TimelineView<Int>.make()
-        stack.insert(timeline, at: 4)
-        stack.keep(atMost: 8)
         return windowedObservable
             .map { (timeline, $0) }
             .concat(Observable.just((timeline, nil)))
     }
-    .subscribe(onNext: { tuple in
-        let (timeline, value) = tuple
+    .share()
+
+let timelineObservable = windowObservable
+    .map { $0.0 }
+    .do(onNext: {
+        stack.insert($0, at: 4)
+        stack.keep(atMost: 8)
+    })
+
+let valueObservable = windowObservable
+    .map { $0.1 }
+
+_ = Observable
+    .zip(timelineObservable, valueObservable)
+    .subscribe(onNext: {
+        let (timeline, value) = $0
         if let value = value {
             timeline.add(.Next(value))
         } else {
             timeline.add(.Completed(true))
         }
     })
+
+// 官方解法
+//_ = sourceObservable.subscribe(sourceTimeline)
+//let windowedObservable = sourceObservable
+//    .window(timeSpan: windowTimeSpan,
+//            count: windowMaxCount,
+//            scheduler: MainScheduler.instance)
+//let timelineObservable = windowedObservable
+//    .do(onNext: { _ in
+//        let timeline = TimelineView<Int>.make()
+//        stack.insert(timeline, at: 4)
+//        stack.keep(atMost: 8)
+//    })
+//    .map { _ in stack.arrangedSubviews[4] as! TimelineView<Int> }
+//_ = Observable
+//    .zip(windowedObservable, timelineObservable)
+//    .flatMap { tuple -> Observable<(TimelineView<Int>, String?)> in
+//        let obs = tuple.0
+//        let timeline = tuple.1
+//        return obs
+//            .map { value in (timeline, value) }
+//            .concat(Observable.just((timeline, nil)))
+//    }
+//    .subscribe(onNext: { tuple in
+//        let (timeline, value) = tuple
+//        if let value = value {
+//            timeline.add(.Next(value))
+//        } else {
+//            timeline.add(.Completed(true))
+//        }
+//    })
 
 let hostView = setupHostView()
 hostView.addSubview(stack)
