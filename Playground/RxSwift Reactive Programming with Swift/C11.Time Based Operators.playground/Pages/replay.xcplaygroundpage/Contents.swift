@@ -75,20 +75,51 @@ let maxElements = 100
 let replayedElements = 3
 let replayDelay: TimeInterval = 5
 
+//let sourceObservable = Observable<Int>
+//    .create { observer in
+//        var value = 1
+//        let timer = DispatchSource.timer(interval: 1.0 / Double(elementsPerSecond), queue: .main) {
+//            if value <= maxElements {
+//                print("create \(value)")
+//                observer.onNext(value)
+//                value += 1
+//            }
+//        }
+//        return Disposables.create { timer.suspend() }
+//    }
+////    .replay(replayedElements)
+//    .replayAll()
+
+// Intervals
+// RxSwift's Observable.interval(_:scheduler:) function.
+// It produces an infinite observable sequence on Int values (effectively a counter)
+// sent at the selected interval on the specified scheduler.
+// Observable.interval(_:scheduler:) 函数
+// 它在指定 scheduler 上间隔指定时间发出无限可观察整数序列(实际上是一个计数器)
+
+// Interval timers are incredibly easy to create with RxSwift. Not only that,
+// but they are also easy to cancel: since Observable.interval(_:scheduler:)
+// generates an observable sequence, subscriptions can simply dispose() the returned
+// disposable to cancel the subscription and stop the timer. Very cool!
+// 使用 RxSwift 非常容易创建 Interval timer
+// 不仅如此, 它也非常容易取消: 因为 Observable.interval(_:scheduler:) 生成一个 observable,
+// 订阅后可以简单的使用 disposable 调用其 dispose() 方法来取消订阅和停止 timer. 非常酷!
+
+// It is notable that the first value is emitted at the specified duration after
+// a subscriber starts observing the sequence. Also, the timer won't start before
+// this point. The subscription is the trigger that kicks it off.
+// 值得注意的是: 在订阅者订阅后经历指定时间间隔后, observable 才会发出第一个值
+// 也就是, timer 不会在订阅前发出元素. 订阅是启动它的触发器.
+
+// Note: Values emitted by Observable.interval(_:scheduler:)
+// are signed integers starting from 0.
+// Should you need different values, you can simply map(_:) them.
+// 注意: Observable.interval(_:scheduler:) 发出的值是从 0 开始的.
+// 如果你需要不同的值, 你可以简单的 map(_:) 它们.
+
 let sourceObservable = Observable<Int>
-    .create { observer in
-        var value = 1
-        let timer = DispatchSource.timer(interval: 1.0 / Double(elementsPerSecond), queue: .main) {
-            if value <= maxElements {
-                print("create \(value)")
-                observer.onNext(value)
-                value += 1
-            }
-        }
-        return Disposables.create { timer.suspend() }
-    }
-//    .replay(replayedElements)
-    .replayAll()
+    .interval(RxTimeInterval(1.0 / Double(elementsPerSecond)), scheduler: MainScheduler.instance)
+    .replay(replayedElements)
 
 let sourceTimeline = TimelineView<Int>.make()
 let replayedTimeline = TimelineView<Int>.make()
