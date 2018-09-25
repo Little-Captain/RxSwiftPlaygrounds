@@ -98,6 +98,33 @@ _ = sourceObservable.subscribe(sourceTimeline)
 //    .delay(RxTimeInterval(delayInSeconds), scheduler: MainScheduler.instance)
 //    .subscribe(delayedTimeline)
 
+// You may want a more powerful timer observable. You can use the
+// Observable.timer(_:period:scheduler:) operator which is very much like
+// Observable.interval(_:scheduler:) but adds the following features:
+// • You can specify a “due date” as the time that elapsed between
+//   the point of subscription and the first emitted value.
+// • The repeat period is optional. If you don't specify one,
+//   the timer observable will emit once, then complete.
+// 你可能想要一个更强大的 timer observable.
+// 你可以使用 Observable.timer(_:period:scheduler:) 操作符, 它与
+// Observable.interval(_:scheduler:) 非常相似, 但是添加了一下特性:
+// 1. 你可以指定一个 `dueTime` 用于确定订阅与第一个元素发出的时间间隔
+// 2. 重复周期时间 `period` 是可选的. 如果你没有指定, timer observable
+//    只会发出一个元素, 然后完成.
+
+// There are several benefits to using this over Dispatch:
+// • The whole chain is more readable (more “Rx-y”).
+// • Since the subscription returns a disposable, you can cancel at any point
+//   before the first or second timer triggers with a single observable.
+// • Using the flatMap(_:) operator, you can produce timer sequences without
+//   having to jump through hoops with Dispatch asynchronous closures.
+// 使用 Observable.timer(_:period:scheduler:) 替换 Dispatch 的好处有:
+// 1. 整个调用链更具可读性
+// 2. 因为订阅返回了一个 disposable, 你可以在订阅返回 disposable 后轻松取消它
+// 3. 使用 flatMap(_:) 操作符, 你可以在不使用 Dispatch 异步闭包嵌套的情况下,
+//    轻松产生时钟序列
+
+
 _ = Observable<Int>
     .timer(3, scheduler: MainScheduler.instance)
     .flatMap { _ in
