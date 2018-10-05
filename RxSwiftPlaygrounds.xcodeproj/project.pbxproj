@@ -18,6 +18,7 @@
 /* Begin PBXFileReference section */
 		29711EDFE2B6C61AA979DD32 /* Pods_RxSwiftPlaygrounds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftPlaygrounds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B5066779AD6ADD0177C906B /* Pods-RxSwiftPlaygrounds.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftPlaygrounds.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftPlaygrounds/Pods-RxSwiftPlaygrounds.release.xcconfig"; sourceTree = "<group>"; };
+		B92EFD582167625C00F62F46 /* C18.Table and Collection Views.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "C18.Table and Collection Views.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B96F4A972154AA4B0002EEA3 /* RxSwiftPlaygrounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftPlaygrounds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96F4A9A2154AA4B0002EEA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B96F4A9C2154AA4B0002EEA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +131,7 @@
 				B96F4ABE2154AA7A0002EEA3 /* C08.share vs. shareReplay.playground */,
 				B96F4ABF2154AA7A0002EEA3 /* C09.Combining Operators.playground */,
 				B96F4AC02154AB550002EEA3 /* C11.Time Based Operators.playground */,
+				B92EFD582167625C00F62F46 /* C18.Table and Collection Views.playground */,
 			);
 			path = "RxSwift Reactive Programming with Swift";
 			sourceTree = "<group>";
