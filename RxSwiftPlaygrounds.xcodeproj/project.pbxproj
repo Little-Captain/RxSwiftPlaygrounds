@@ -19,6 +19,7 @@
 		29711EDFE2B6C61AA979DD32 /* Pods_RxSwiftPlaygrounds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftPlaygrounds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B5066779AD6ADD0177C906B /* Pods-RxSwiftPlaygrounds.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftPlaygrounds.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftPlaygrounds/Pods-RxSwiftPlaygrounds.release.xcconfig"; sourceTree = "<group>"; };
 		B9044D13216846C100B3F63B /* C21.RxRealm.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = C21.RxRealm.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B9044D1421684DD500B3F63B /* C22.RxAlamofire.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = C22.RxAlamofire.playground; path = Playground/C22.RxAlamofire.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B94F3404216794C2000DD638 /* C18.Table and Collection Views 2.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "C18.Table and Collection Views 2.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B94F3405216794C3000DD638 /* C19.Action.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = C19.Action.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B96F4A972154AA4B0002EEA3 /* RxSwiftPlaygrounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftPlaygrounds.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +139,7 @@
 				B94F3405216794C3000DD638 /* C19.Action.playground */,
 				B9D6AD0D2167AF6E00237869 /* C20.RxGesture.playground */,
 				B9044D13216846C100B3F63B /* C21.RxRealm.playground */,
+				B9044D1421684DD500B3F63B /* C22.RxAlamofire.playground */,
 			);
 			path = "RxSwift Reactive Programming with Swift";
 			sourceTree = "<group>";
