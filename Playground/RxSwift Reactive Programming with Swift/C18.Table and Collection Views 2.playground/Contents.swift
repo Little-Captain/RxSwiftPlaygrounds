@@ -3,6 +3,13 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Action
+
+class ButtonCell: UITableViewCell {
+    
+    var button: UIButton = UIButton()
+    
+}
 
 //: Table and Collection Views
 
@@ -17,9 +24,14 @@ let bag = DisposeBag()
 cities
     .asDriver()
     .drive(tableView.rx.items) { (tableView, index, element) in
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell") as! ButtonCell
         cell.selectionStyle = .none
         cell.textLabel?.text = element
+        // 使用 Action
+        cell.button.rx.action = CocoaAction {
+            // do something specific to this cell here
+            return .empty()
+        }
         return cell
     }
     .disposed(by: bag)
@@ -50,6 +62,7 @@ DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
 //    case pairOfImages(UIImage)
 //
 //}
+//let bag = DisposeBag()
 //
 //let observable = Observable<[MyModel]>.just([
 //    .text("Paris"),
