@@ -18,6 +18,10 @@
 /* Begin PBXFileReference section */
 		29711EDFE2B6C61AA979DD32 /* Pods_RxSwiftPlaygrounds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftPlaygrounds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B5066779AD6ADD0177C906B /* Pods-RxSwiftPlaygrounds.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftPlaygrounds.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftPlaygrounds/Pods-RxSwiftPlaygrounds.release.xcconfig"; sourceTree = "<group>"; };
+		B9044D13216846C100B3F63B /* C21.RxRealm.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = C21.RxRealm.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B9044D1421684DD500B3F63B /* C22.RxAlamofire.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = C22.RxAlamofire.playground; path = Playground/C22.RxAlamofire.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B94F3404216794C2000DD638 /* C18.Table and Collection Views 2.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "C18.Table and Collection Views 2.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B94F3405216794C3000DD638 /* C19.Action.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = C19.Action.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B96F4A972154AA4B0002EEA3 /* RxSwiftPlaygrounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftPlaygrounds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96F4A9A2154AA4B0002EEA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B96F4A9C2154AA4B0002EEA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +48,7 @@
 		B96F4ABE2154AA7A0002EEA3 /* C08.share vs. shareReplay.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "C08.share vs. shareReplay.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B96F4ABF2154AA7A0002EEA3 /* C09.Combining Operators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "C09.Combining Operators.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B96F4AC02154AB550002EEA3 /* C11.Time Based Operators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "C11.Time Based Operators.playground"; sourceTree = "<group>"; };
+		B9D6AD0D2167AF6E00237869 /* C20.RxGesture.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = C20.RxGesture.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E5565220E229ABB729CF4B7A /* Pods-RxSwiftPlaygrounds.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftPlaygrounds.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftPlaygrounds/Pods-RxSwiftPlaygrounds.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +135,11 @@
 				B96F4ABE2154AA7A0002EEA3 /* C08.share vs. shareReplay.playground */,
 				B96F4ABF2154AA7A0002EEA3 /* C09.Combining Operators.playground */,
 				B96F4AC02154AB550002EEA3 /* C11.Time Based Operators.playground */,
+				B94F3404216794C2000DD638 /* C18.Table and Collection Views 2.playground */,
+				B94F3405216794C3000DD638 /* C19.Action.playground */,
+				B9D6AD0D2167AF6E00237869 /* C20.RxGesture.playground */,
+				B9044D13216846C100B3F63B /* C21.RxRealm.playground */,
+				B9044D1421684DD500B3F63B /* C22.RxAlamofire.playground */,
 			);
 			path = "RxSwift Reactive Programming with Swift";
 			sourceTree = "<group>";
@@ -236,12 +246,26 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RxSwiftPlaygrounds/Pods-RxSwiftPlaygrounds-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

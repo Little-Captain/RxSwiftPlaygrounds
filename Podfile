@@ -5,6 +5,10 @@ target 'RxSwiftPlaygrounds' do
   
   pod 'RxSwift', '~> 4.0.0'
   pod 'RxCocoa', '~> 4.0.0'
+  pod 'Action'
+  pod 'RxGesture'
+  pod 'RxRealm'
+  pod 'RxAlamofire'
 end
 
 post_install do |installer|
