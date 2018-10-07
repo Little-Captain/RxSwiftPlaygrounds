@@ -93,7 +93,7 @@ example(of: "materialize and dematerialize") {
         // 过滤掉所有的错误事件
         .filter { $0.error == nil }
         // 解包成原始值
-        .dematerialize()
+//        .dematerialize()
         .subscribe(onNext: { print($0) }, onCompleted: { print("completed") })
         .disposed(by: bag)
     
@@ -103,6 +103,21 @@ example(of: "materialize and dematerialize") {
     student.onNext(charlotte)
     charlotte.score.onNext(101)
     charlotte.score.onCompleted()
+    
+    let values = PublishSubject<Int>()
+    values
+        .asObservable()
+        .materialize()
+//        .dematerialize()
+        .subscribe(onNext: { print("\($0)" + "s") },
+                   onError: { print($0) },
+                   onCompleted: { print("completed-x") })
+        .disposed(by: bag)
+    values.onNext(1)
+    values.onNext(2)
+    values.onCompleted()
+    values.onError(MyError.anError)
+    values.onNext(3)
 }
 
 example(of: "Challenge 1") {
