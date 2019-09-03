@@ -3,8 +3,8 @@ platform :ios, '11.0'
 target 'RxSwiftPlaygrounds' do
   use_frameworks!
   
-  pod 'RxSwift', '~> 4.0.0'
-  pod 'RxCocoa', '~> 4.0.0'
+  pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'Action'
   pod 'RxGesture'
   pod 'RxRealm'
