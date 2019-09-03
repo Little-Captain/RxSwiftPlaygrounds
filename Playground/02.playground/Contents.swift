@@ -11,7 +11,6 @@ let evenNumberObservable = Observable.of("1", "2", "3", "4", "5", "6", "7", "8",
             print("Even: \(item)")
             return true
         }
-        
         return false
 }
 

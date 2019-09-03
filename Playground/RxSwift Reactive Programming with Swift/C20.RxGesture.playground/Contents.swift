@@ -44,7 +44,7 @@ view
 view
     .rx.swipeGesture(.left, configuration: { recognizer, _ in
         // 配置手势识别器
-        recognizer.allowedTouchTypes = [NSNumber(value: UITouchType.stylus.rawValue)]
+        recognizer.allowedTouchTypes = [NSNumber(value: UITouch.TouchType.stylus.rawValue)]
     })
 
 let vForPan = UIView(frame: CGRect(x: 300, y: 200, width: 50, height: 50))

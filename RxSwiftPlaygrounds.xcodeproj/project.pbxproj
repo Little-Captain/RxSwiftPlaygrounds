@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2EA9932AF74618C9E46963F5 /* Pods_RxSwiftPlaygrounds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29711EDFE2B6C61AA979DD32 /* Pods_RxSwiftPlaygrounds.framework */; };
+		0BFFC33AF51A539BA5B73443 /* Pods_RxSwiftPlaygrounds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29711EDFE2B6C61AA979DD32 /* Pods_RxSwiftPlaygrounds.framework */; };
 		B96F4A9B2154AA4B0002EEA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96F4A9A2154AA4B0002EEA3 /* AppDelegate.swift */; };
 		B96F4A9D2154AA4B0002EEA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96F4A9C2154AA4B0002EEA3 /* ViewController.swift */; };
 		B96F4AA02154AA4B0002EEA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B96F4A9E2154AA4B0002EEA3 /* Main.storyboard */; };
@@ -57,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EA9932AF74618C9E46963F5 /* Pods_RxSwiftPlaygrounds.framework in Frameworks */,
+				0BFFC33AF51A539BA5B73443 /* Pods_RxSwiftPlaygrounds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +347,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -400,6 +401,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -418,7 +420,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.littlecaptain.RxSwiftPlaygrounds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -437,7 +439,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.littlecaptain.RxSwiftPlaygrounds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
