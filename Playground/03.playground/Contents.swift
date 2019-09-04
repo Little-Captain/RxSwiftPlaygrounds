@@ -13,7 +13,6 @@ let customOb = Observable<Int>.create { observer in
     observer.onError(CustomError.somethingWrong)
     observer.onNext(11)
     observer.onCompleted()
-    
     return Disposables.create()
 }
 

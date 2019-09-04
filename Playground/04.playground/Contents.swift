@@ -1,6 +1,7 @@
 //: Playground - noun: a place where people can play
 
 import RxSwift
+import RxCocoa
 
 func example(_ tip: String, _ closure: () -> ()) {
     print(tip)
@@ -36,13 +37,13 @@ example("BehaviorSubject") {
     let subject2 = BehaviorSubject<String>(
         value: "RxSwift step by step")
     
-    let sub3 = subject2.subscribe(onNext: {
+    _ = subject2.subscribe(onNext: {
         print("Sub1 - what happened: \($0)")
     })
     
     subject2.onNext("Episode1 updated")
     
-    let sub4 = subject2.subscribe(onNext: {
+    _ = subject2.subscribe(onNext: {
         print("Sub2 - what happened: \($0)")
     })
 }
@@ -50,25 +51,25 @@ example("BehaviorSubject") {
 // ReplaySubject
 example("ReplaySubject") {
     let subject = ReplaySubject<String>.create(bufferSize: 2)
-    let sub1 = subject.subscribe(onNext: {
+    _ = subject.subscribe(onNext: {
         print("Sub1 - what happened: \($0)")
     })
     subject.onNext("Episode1 updated")
     subject.onNext("Episode2 updated")
     subject.onNext("Episode3 updated")
     
-    let sub2 = subject.subscribe(onNext: {
+    _ = subject.subscribe(onNext: {
         print("Sub2 - what happened: \($0)")
     })
 }
 
 // Variable
 example("Variable") {
-    let stringVariable = Variable("Episode1")
-    let sub1 = stringVariable
+    let stringVariable = BehaviorRelay(value: "Episode1")
+    _ = stringVariable
         .asObservable()
         .subscribe {
             print("sub1: \($0)")
     }
-    stringVariable.value = "Episode2"
+    stringVariable.accept("Episode2")
 }

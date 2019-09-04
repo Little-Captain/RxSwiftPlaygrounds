@@ -4,7 +4,6 @@ import RxSwift
 
 func example(_ description: String,
              _ action: () -> ()) {
-    
     print("================== \(description) ==================")
     action()
 }
@@ -21,13 +20,11 @@ public func stamp() -> String {
     let formatter = DateFormatter()
     formatter.dateFormat = "HH:mm:ss"
     let result = formatter.string(from: date)
-    
     return result
 }
 
-// 使用connectable operator回放事件
+// 使用 connectable operator 回放事件
 example("使用connectable operator回放事件") {
-    
 //    let interval = Observable<Int>.interval(1, scheduler:MainScheduler.instance).replay(2)
 //    let interval = Observable<Int>.interval(1, scheduler:MainScheduler.instance).replayAll()
 //    let interval = Observable<Int>.interval(1, scheduler:MainScheduler.instance).buffer(timeSpan: 4, count: 2, scheduler: MainScheduler.instance)
@@ -41,7 +38,6 @@ example("使用connectable operator回放事件") {
     _ = interval.subscribe(onNext: {
         (subObservable: Observable<Int>) in
         print("============= Window Open ===============")
-        
         _ = subObservable.subscribe(onNext: {
             (value: Int) in
             print("Subscriber 1: Event - \(value) at \(stamp())")

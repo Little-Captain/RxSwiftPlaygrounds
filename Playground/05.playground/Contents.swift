@@ -4,7 +4,6 @@ import RxSwift
 
 func example(_ description: String,
              _ action: () -> ()) {
-    
     print("================== \(description) ==================")
     action()
 }
@@ -13,11 +12,13 @@ func example(_ description: String,
 
 // ignoreElements
 example("ignoreElements") {
-    
     let tasks = PublishSubject<String>()
     let bag = DisposeBag()
     
-    tasks.ignoreElements().subscribe { print($0) }.disposed(by: bag)
+    tasks
+        .ignoreElements()
+        .subscribe { print($0) }
+        .disposed(by: bag)
     
     tasks.onNext("T1")
     tasks.onNext("T2")
@@ -27,11 +28,13 @@ example("ignoreElements") {
 
 // skip
 example("skip") {
-    
     let tasks = PublishSubject<String>()
     let bag = DisposeBag()
     
-    tasks.skip(2).subscribe { print($0) }.disposed(by: bag)
+    tasks
+        .skip(2)
+        .subscribe { print($0) }
+        .disposed(by: bag)
     
     tasks.onNext("T1")
     tasks.onNext("T2")
@@ -42,11 +45,13 @@ example("skip") {
 // skipWhile
 // 跳过、当
 example("skipWhile") {
-    
     let tasks = PublishSubject<String>()
     let bag = DisposeBag()
     
-    tasks.skipWhile { $0 != "T2" }.subscribe { print($0) }.disposed(by: bag)
+    tasks
+        .skipWhile { $0 != "T2" }
+        .subscribe { print($0) }
+        .disposed(by: bag)
     
     tasks.onNext("T1")
     tasks.onNext("T2")
@@ -57,7 +62,6 @@ example("skipWhile") {
 // skipUntil
 // 跳过、直到
 example("skipUntil") {
-    
     let tasks = PublishSubject<String>()
     let bossIsAngry = PublishSubject<Void>()
     let bag = DisposeBag()
@@ -66,7 +70,7 @@ example("skipUntil") {
         .subscribe {
             print($0)
         }
-        .addDisposableTo(bag)
+        .disposed(by: bag)
     
     tasks.onNext("T1");
     bossIsAngry.onNext(());
@@ -78,7 +82,6 @@ example("skipUntil") {
 // distinctUntilChanged
 // 忽略连续重复事件
 example("distinctUntilChanged") {
-    
     let tasks = PublishSubject<String>()
     let bag = DisposeBag()
     
@@ -86,7 +89,7 @@ example("distinctUntilChanged") {
         .subscribe {
             print($0)
         }
-        .addDisposableTo(bag)
+        .disposed(by: bag)
     
     tasks.onNext("T1")
     tasks.onNext("T2")

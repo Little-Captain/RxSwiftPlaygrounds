@@ -4,7 +4,6 @@ import RxSwift
 
 func example(_ description: String,
              _ action: () -> ()) {
-    
     print("================== \(description) ==================")
     action()
 }
@@ -13,13 +12,15 @@ func example(_ description: String,
 
 // elementAt
 example("elementAt") {
-    
     let tasks = PublishSubject<String>()
     let bag = DisposeBag()
     
-    tasks.elementAt(0).subscribe {
-        print($0)
-    }
+    tasks
+        .elementAt(0)
+        .subscribe {
+            print($0)
+        }
+        .disposed(by: bag)
     
     tasks.onNext("T1") // 0
     tasks.onNext("T2") // 1
@@ -29,13 +30,15 @@ example("elementAt") {
 
 // filter
 example("filter") {
-    
     let tasks = PublishSubject<String>()
     let bag = DisposeBag()
     
-    tasks.filter { $0 == "T2" }.subscribe {
-        print($0)
-    }
+    tasks
+        .filter { $0 == "T2" }
+        .subscribe {
+            print($0)
+        }
+        .disposed(by: bag)
     
     tasks.onNext("T1") // 0
     tasks.onNext("T2") // 1
@@ -45,13 +48,15 @@ example("filter") {
 
 // take
 example("take") {
-    
     let tasks = PublishSubject<String>()
     let bag = DisposeBag()
     
-    tasks.take(2).subscribe {
-        print($0)
-    }
+    tasks
+        .take(2)
+        .subscribe {
+            print($0)
+        }
+        .disposed(by: bag)
     
     tasks.onNext("T1") // 0
     tasks.onNext("T2") // 1
@@ -61,13 +66,15 @@ example("take") {
 
 // takeWhile
 example("takeWhile") {
-    
     let tasks = PublishSubject<String>()
     let bag = DisposeBag()
     
-    tasks.takeWhile { $0 != "T3" }.subscribe {
-        print($0)
-    }
+    tasks
+        .takeWhile { $0 != "T3" }
+        .subscribe {
+            print($0)
+        }
+        .disposed(by: bag)
     
     tasks.onNext("T1") // 0
     tasks.onNext("T2") // 1
@@ -79,15 +86,17 @@ example("takeWhile") {
 
 // takeWhileWithIndex
 example("takeWhileWithIndex") {
-    
     let tasks = PublishSubject<String>()
     let bag = DisposeBag()
     
-    tasks.takeWhileWithIndex { (value, index) in
-        value != "T3" && index < 3
-    }.subscribe {
-        print($0)
-    }
+    tasks
+        .takeWhileWithIndex { (value, index) in
+            value != "T3" && index < 3
+        }
+        .subscribe {
+            print($0)
+        }
+        .disposed(by: bag)
     
     tasks.onNext("T1") // 0
     tasks.onNext("T2") // 1
@@ -99,12 +108,12 @@ example("takeWhileWithIndex") {
 
 // takeUntil
 example("takeUntil") {
-    
     let tasks = PublishSubject<String>()
     let bossHasGone = PublishSubject<Void>()
     let bag = DisposeBag()
     
-    tasks.takeUntil(bossHasGone)
+    tasks
+        .takeUntil(bossHasGone)
         .subscribe {
             print($0)
         }
@@ -112,7 +121,10 @@ example("takeUntil") {
     
     tasks.onNext("T1")
     tasks.onNext("T2")
+    print("hit 1")
     bossHasGone.onNext(())
+    print("hit 2")
     tasks.onNext("T3")
+    print("hit 3")
     tasks.onCompleted()
 }
