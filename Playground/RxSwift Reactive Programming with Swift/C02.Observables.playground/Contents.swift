@@ -15,11 +15,19 @@ example(of: "just, of, from") {
     let observable3 = Observable.of([one, two, three])
     let observable4 = Observable.from([one, two, three])
     
-    let sequence = 0..<3
-    var iterator = sequence.makeIterator()
-    while let n = iterator.next() {
-        print(n)
-    }
+    //    let sequence = 0..<3
+    //    var iterator = sequence.makeIterator()
+    //    while let n = iterator.next() {
+    //        print(n)
+    //    }
+    
+    let bag = DisposeBag()
+    
+    observable4
+        .subscribe { event in
+            print(event)
+        }
+        .disposed(by: bag)
 }
 
 example(of: "subscribe") {
@@ -28,51 +36,64 @@ example(of: "subscribe") {
     let three = 3
     
     let observable = Observable.of(one, two, three)
-    observable.subscribe { event in
-        print(event)
-    }
-    observable.subscribe { event in
-        if let element = event.element {
-            print(element)
+    
+    let bag = DisposeBag()
+    
+    observable
+        .subscribe { event in
+            print(event)
         }
-    }
-    observable.subscribe(onNext: { element in
-        print(element)
-    })
+        .disposed(by: bag)
+    
+    observable
+        .subscribe { event in
+            if let element = event.element {
+                print(element)
+            }
+        }
+        .disposed(by: bag)
+    
+    observable
+        .subscribe(onNext: { element in
+            print(element)
+        })
+        .disposed(by: bag)
 }
 
 example(of: "empty") {
     let observable = Observable<Void>.empty()
+    let bag = DisposeBag()
     observable
-        .subscribe(
-            onNext: { element in
-                print(element)
-        },
-            onCompleted: {
-                print("Completed")
+        .subscribe(onNext: { element in
+            print(element)
+        }, onCompleted: {
+            print("Completed")
         })
+        .disposed(by: bag)
 }
 
 example(of: "never") {
     let observable = Observable<Void>.never()
+    let bag = DisposeBag()
     observable
-        .subscribe(
-            onNext: { element in
-                print(element)
-        },
-            onCompleted: {
-                print("Completed")
+        .subscribe(onNext: { element in
+            print(element)
+        }, onCompleted: {
+            print("Completed")
         })
+        .disposed(by: bag)
 }
 
 example(of: "range") {
     let observable = Observable<Int>.range(start: 1, count: 10)
+    let bag = DisposeBag()
     observable
         .subscribe(onNext: { i in
             let n = Double(i)
             let fibonacci = Int(((pow(1.61803, n) - pow(0.61803, n)) / 2.23606).rounded())
             print(fibonacci)
         })
+        .disposed(by: bag)
     observable
         .map { i -> Int in
             let n = Double(i)
@@ -81,15 +102,17 @@ example(of: "range") {
         .subscribe(onNext: {
             print($0)
         })
+        .disposed(by: bag)
 }
 
 example(of: "dispose") {
     // 1
     let observable = Observable.of("A", "B", "C")
     // 2
-    let subscription = observable.subscribe { event in
-        // 3
-        print(event)
+    let subscription = observable
+        .subscribe { event in
+            // 3
+            print(event)
     }
     subscription.dispose()
 }
@@ -118,7 +141,7 @@ example(of: "create") {
             observer.onNext("A")
             observer.onError(MyError.anError)
             observer.onNext("B")
-            observer.onCompleted()
+//            observer.onCompleted()
             observer.onNext("C")
             return Disposables.create()
         }
@@ -136,7 +159,6 @@ example(of: "create") {
 }
 
 example(of: "deferred") {
-    let disposeBag = DisposeBag()
     var flip = false
     let factory: Observable<Int> = Observable.deferred {
         flip = !flip
@@ -148,11 +170,18 @@ example(of: "deferred") {
     }
     
     for _ in 0...3 {
+        let bag = DisposeBag()
         factory
             .subscribe(onNext: {
-                print($0, terminator: "")
+                print($0, terminator: " ")
+            }, onCompleted: {
+                print("completed", terminator: " ")
+            }, onDisposed: {
+                print("disposed", terminator: " ")
             })
-            .disposed(by: disposeBag)
+            .disposed(by: bag)
+        // of 运算符中的所有元素发送完毕，就会立即发送 completed 然后被回收
+        // 也就是上面的 .disposed(by: bag) 不调用，效果是一样的
         print()
     }
 }
@@ -183,7 +212,7 @@ example(of: "Single") {
         }
     }
     
-    loadText(from: "Copyright1")
+    loadText(from: "Copyright")
         //        .subscribe {
         //            switch $0 {
         //            case .success(let string):
@@ -219,7 +248,7 @@ example(of: "Perform side effects: do") {
 example(of: "Print debug info: debug") {
     let disposeBag = DisposeBag()
     Observable.of("A", "B", "C")
-        .debug("First", trimOutput: false)
+        .debug("Debug", trimOutput: false)
         .subscribe {
             print($0)
         }
