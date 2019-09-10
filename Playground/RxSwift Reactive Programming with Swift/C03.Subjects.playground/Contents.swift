@@ -7,6 +7,10 @@ import RxSwift
 // Observer 收集 Value, 形成 Observable
 // Subscriber 订阅 Observable, 捕获 Event, 获取 Value
 example(of: "PublishSubject") {
+    enum MyError: Error {
+        case PError
+    }
+    
     let subject = PublishSubject<String>()
     subject.onNext("Is anyone listening")
     let subscriptionOne = subject
@@ -23,7 +27,11 @@ example(of: "PublishSubject") {
     subscriptionOne.dispose()
     subject.onNext("4")
     // 1
-    subject.onCompleted()
+    // 停止事件: completed, error
+    // 如果有新的订阅者，它会立即收到停止事件
+    // 每个主题一旦终止，将重新向未来的订阅者发出停止事件
+    //    subject.onCompleted()
+    subject.onError(MyError.PError)
     // 2
     subject.onNext("5")
     // 3
@@ -35,7 +43,7 @@ example(of: "PublishSubject") {
             print("3)", $0.element ?? $0)
         }
         .disposed(by: disposeBag)
-    subject.onNext("?")
+    //    subject.onNext("?")
 }
 
 enum MyError: Error {
@@ -43,7 +51,15 @@ enum MyError: Error {
 }
 
 func print<T: CustomStringConvertible>(label: String, event: Event<T>) {
-    print(label, event.element ?? event.error ?? event)
+    if let element = event.element {
+        print(label, element)
+        return
+    }
+    if let error = event.error {
+        print(label, error)
+        return
+    }
+    print(label, event)
 }
 // BehaviorSubject
 // 发送最新的事件给新订阅者: .next, .completed, .error
@@ -58,7 +74,7 @@ example(of: "BehaviorSubject") {
         }
         .disposed(by: disposeBag)
     // 1
-//    subject.onError(MyError.anError)
+    //    subject.onError(MyError.anError)
     subject.onCompleted()
     // 2
     subject
@@ -92,7 +108,7 @@ example(of: "ReplaySubject") {
         .disposed(by: disposeBag)
     subject.onNext("4")
     subject.onError(MyError.anError)
-    //    subject.dispose()
+    subject.dispose()
     subject
         .subscribe {
             print(label: "3)", event: $0)
@@ -118,7 +134,7 @@ example(of: "Variable") {
     varibale.asObservable()
         .subscribe {
             print(label: "2)", event: $0)
-    }
+        }
         .disposed(by: disposeBag)
     varibale.value = "2"
 }
@@ -147,7 +163,6 @@ example(of: "Create a blackjack card dealer using a publish subject") {
         } else {
             dealtHand.onNext(hand)
         }
-        
     }
     
     // Add subscription to dealtHand here
