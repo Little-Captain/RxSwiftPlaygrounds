@@ -4,6 +4,7 @@
 
 ## Build generated
 build/
+.idea/
 DerivedData/
 Podfile.lock
 

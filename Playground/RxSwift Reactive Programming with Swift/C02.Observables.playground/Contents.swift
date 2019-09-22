@@ -225,6 +225,88 @@ example(of: "Single") {
         .disposed(by: disposeBag)
 }
 
+example(of: "Maybe") {
+    
+    enum MaybeError: Error {
+        case mayError
+    }
+    
+    let disposeBag = DisposeBag()
+    
+    let number = 2
+    
+    func getMaybe() -> Maybe<String> {
+        return Maybe.create { maybe in
+            switch number {
+            case 1:
+                maybe(.success("success"))
+            case 2:
+                maybe(.completed)
+            default:
+                maybe(.error(MaybeError.mayError))
+            }
+            return Disposables.create()
+        }
+    }
+    
+//    getMaybe().subscribe(onSuccess: {
+//        print($0)
+//    }, onError: {
+//        print($0)
+//    }, onCompleted: {
+//        print("completed")
+//    })
+    getMaybe().asObservable()
+        .subscribe(onNext: {
+            print($0)
+        }, onError: {
+            print($0)
+        }, onCompleted: {
+            print("completed")
+        }, onDisposed: {
+            print("disposed")
+        })
+}
+
+example(of: "Completed") {
+    
+    enum CompletedError: Error {
+        case cError
+    }
+    
+    let disposeBag = DisposeBag()
+    
+    let number = 1
+    
+    func getCompleted() -> Completable {
+        return Completable.create { com in
+            switch number {
+            case 1:
+                com(.completed)
+            default:
+                com(.error(CompletedError.cError))
+            }
+            return Disposables.create()
+        }
+    }
+
+//    getCompleted().subscribe(onCompleted: {
+//        print("completed")
+//    }, onError: {
+//        print($0)
+//    })
+    getCompleted().asObservable()
+        .subscribe(onNext: {
+            print($0)
+        }, onError: {
+            print($0)
+        }, onCompleted: {
+            print("completed")
+        }, onDisposed: {
+            print("disposed")
+        })
+}
+
 example(of: "Perform side effects: do") {
     let observable = Observable<Void>.never()
     observable
