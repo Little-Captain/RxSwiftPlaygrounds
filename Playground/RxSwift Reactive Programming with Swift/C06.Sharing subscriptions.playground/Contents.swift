@@ -82,7 +82,7 @@ example(of: "Sharing subscriptions") {
     // keeps a buffer of the last few emitted values and can provide them to new
     // observers upon subscription.
     
-    // 注意: share() 不为订阅提供任何默认值.
+    // 注意: share() 不为任何新订阅提供该订阅之前发出的值
     // share(replay:scope:), 保持最近的已发送值, 并将它(们)提供给新的订阅者
     
     // The rule of thumb about sharing operators is that it's safe to use share() with
@@ -92,4 +92,6 @@ example(of: "Sharing subscriptions") {
     // 使用 share 的经验法则:
     // 1. 针对未完成的 observables 使用 share 是安全的
     // 2. 如果你能保证 observables 完成后, 没有新的订阅, 那么可以使用 share
+    // 3. 如果完成后有新的订阅，会再次调用 create 闭包，生成序列。所谓 安全使用 share，
+    //    就是要避免重复调用 create 闭包生成序列
 }
